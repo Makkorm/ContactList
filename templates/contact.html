@@ -1,0 +1,173 @@
+<nav class="main-nav">
+    <div class="container">
+        <ol class="breadcrumb">
+            <li><a ui-sref="main">Главная</a></li>
+            <li class="active">{{contactCopy.lastName + " " + contactCopy.name}}</li>
+        </ol>
+        <div class="row">
+            <div class="col-sm-12">
+                <button class="btn btn-primary" ng-show="isEdit === false" ng-click="initEdit()">Редактировать</button>
+                <button class="btn btn-primary" ng-show="isEdit === true" ng-click="saveEdit()">Сохранить</button>
+                <button class="btn btn-danger" ng-show="isEdit === true" ng-click="stopEdit()">Отмена</button>
+            </div>
+        </div>
+    </div>
+</nav>
+<div class="content">
+    <div class="container">
+        <div class="contact-data-box">
+            <div class="row underline">
+                <div class="col-sm-6">
+                    <p>Фамилия:</p>
+                </div>
+                <div class="col-sm-6">
+                    <p class="contactData" ng-show="isEdit === false">{{contactCopy.lastName}}</p>
+                    <input type="text" class="form-control" ng-model="contactCopy.lastName" ng-show="isEdit === true">
+                </div>
+            </div>
+            <div class="row underline">
+                <div class="col-sm-6">
+                    <p>Имя:</p>
+                </div>
+                <div class="col-sm-6">
+                    <p class="contactData" ng-show="isEdit === false">{{contactCopy.name}}</p>
+                    <input type="text" class="form-control" ng-model="contactCopy.name" ng-show="isEdit === true">
+                </div>
+            </div>
+            <div class="row underline">
+                <div class="col-sm-6">
+                    <p>Отчество:</p>
+                </div>
+                <div class="col-sm-6">
+                    <p class="contactData" ng-show="isEdit === false">{{contactCopy.patronymic}}</p>
+                    <input type="text" class="form-control" ng-model="contactCopy.patronymic" ng-show="isEdit === true">
+                </div>
+            </div>
+            <div class="row underline">
+                <div class="col-sm-6">
+                    <p>Рабочий телефон:</p>
+                </div>
+                <div class="col-sm-6">
+                    <p class="contactData" ng-show="isEdit === false">{{contactCopy.workPhone.number}}
+                        <span class="glyphicon glyphicon-ok pull-right"
+                              aria-hidden="true"
+                              data-toggle="tooltip"
+                              data-placement="bottom"
+                              title="Телефон по умолчанию"
+                              ng-if="isEdit === false"
+                              ng-show="contactCopy.workPhone.isDefault === true">
+                        </span>
+                    </p>
+                    <input type="text" class="form-control" ng-model="contactCopy.workPhone.number" ng-show="isEdit === true">
+                </div>
+            </div>
+            <div class="row underline">
+                <div class="col-sm-6">
+                    <p>Мобильный телефон:</p>
+                </div>
+                <div class="col-sm-6">
+                    <p class="contactData" ng-show="isEdit === false">{{contactCopy.mobilePhone.number}}
+                        <span class="glyphicon glyphicon-ok pull-right"
+                              aria-hidden="true"
+                              data-toggle="tooltip"
+                              data-placement="bottom"
+                              title="Телефон по умолчанию"
+                              ng-if="isEdit === false"
+                              ng-show="contactCopy.mobilePhone.isDefault === true">
+                        </span>
+                    </p>
+                    <input type="text" class="form-control" ng-model="contactCopy.mobilePhone.number" ng-show="isEdit === true">
+                </div>
+            </div>
+            <div class="row underline">
+                <div class="col-sm-6">
+                    <p>Домашний телефон:</p>
+                </div>
+                <div class="col-sm-6">
+                    <p class="contactData" ng-show="isEdit === false">{{contactCopy.homePhone.number}}
+                        <span class="glyphicon glyphicon-ok pull-right"
+                              aria-hidden="true"
+                              data-toggle="tooltip"
+                              data-placement="bottom" title="Телефон по умолчанию"
+                              ng-if="isEdit === false"
+                              ng-show="contactCopy.homePhone.isDefault === true">
+                        </span>
+                    </p>
+                    <input type="text" class="form-control" ng-model="contactCopy.homePhone.number" ng-show="isEdit === true">
+                </div>
+            </div>
+            <div class="row underline">
+                <div class="col-sm-6">
+                    <p>Адрес:</p>
+                </div>
+                <div class="col-sm-6">
+                    <p class="contactData" ng-show="isEdit === false">{{contactCopy.address}}</p>
+                    <input type="text" class="form-control" ng-model="contactCopy.address" ng-show="isEdit === true">
+                </div>
+            </div>
+            <div class="row underline">
+                <div class="col-sm-6">
+                    <p>Рабочая почта:</p>
+                </div>
+                <div class="col-sm-6">
+                    <p class="contactData" ng-show="isEdit === false">{{contactCopy.workMail.emailAddress}}
+                        <span class="glyphicon glyphicon-ok pull-right"
+                              aria-hidden="true"
+                              data-toggle="tooltip"
+                              data-placement="bottom"
+                              title="Почта по умолчанию"
+                              ng-if="isEdit === false"
+                              ng-show="contactCopy.workMail.isDefault === true">
+                        </span>
+                    </p>
+                    <input type="text" class="form-control" ng-model="contactCopy.workMail.emailAddress" ng-show="isEdit === true">
+                </div>
+            </div>
+            <div class="row underline">
+                <div class="col-sm-6">
+                    <p>Домашняя почта:</p>
+                </div>
+                <div class="col-sm-6">
+                    <p class="contactData" ng-show="isEdit === false">{{contactCopy.homeMail.emailAddress}}
+                        <span class="glyphicon glyphicon-ok pull-right"
+                              aria-hidden="true"
+                              data-toggle="tooltip"
+                              data-placement="bottom"
+                              title="Почта по умолчанию"
+                              ng-if="isEdit === false"
+                              ng-show="contactCopy.homeMail.isDefault === true">
+                        </span>
+                    </p>
+                    <input type="text" class="form-control" ng-model="contactCopy.homeMail.emailAddress" ng-show="isEdit === true">
+                </div>
+            </div>
+            <div class="row underline">
+                <div class="col-sm-6">
+                    <p>Дата рождения:</p>
+                </div>
+                <div class="col-sm-6">
+                    <p class="contactData" ng-show="isEdit === false">{{contactCopy.dateOfBirth}}</p>
+                    <input type="text" class="form-control" ng-model="contactCopy.dateOfBirth" ng-show="isEdit === true">
+                </div>
+            </div>
+            <div class="row underline" ng-show="isEdit === true">
+                <div class="col-sm-6">
+                    <p>Телефон по умочинию:</p>
+                </div>
+                <div class="col-sm-6">
+                    <select id="phoneIsDefault" class="form-control" ng-model="phoneIsDefault" ng-options="phone.name for phone in phoneIsDefaultList" ng-change="changeDefPhone(phoneIsDefault)">
+                    </select>
+                </div>
+            </div>
+            <div class="row underline" ng-show="isEdit === true">
+                <div class="col-sm-6">
+                    <p>Почта по умочинию:</p>
+                </div>
+                <div class="col-sm-6">
+                    <select id="mailIsDefault" class="form-control" ng-model="mailIsDefault" ng-options="mail.name for mail in mailIsDefaultList" ng-change="changeDefMail(mailIsDefault)">>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

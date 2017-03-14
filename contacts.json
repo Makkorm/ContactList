@@ -1,0 +1,137 @@
+[
+  {
+    "name": "Олег",
+    "lastName": "Полищук",
+    "patronymic": "Олегович",
+    "dateOfBirth": "09.08.1992",
+    "mobilePhone": {
+      "number": "+375292791223",
+      "isDefault": true
+    },
+    "homePhone": {
+      "number": "2785908",
+      "isDefault": false
+    },
+    "workPhone": {
+      "number": "",
+      "isDefault": false
+    },
+    "address": "г.Минск, ул. Тикоцкого, д.48, кв.60",
+    "workMail": {
+      "emailAddress": "oleg.makkorm@gmail.com",
+      "isDefault": true
+    },
+    "homeMail": {
+      "emailAddress": "2791223@mail.ru",
+      "isDefault": false
+    }
+  },
+  {
+    "name": "Олег",
+    "lastName": "Полищук",
+    "patronymic": "Валентинович",
+    "dateOfBirth": "21.11.1967",
+    "mobilePhone": {
+      "number": "+375298753109",
+      "isDefault": true
+    },
+    "homePhone": {
+      "number": "2785908",
+      "isDefault": false
+    },
+    "workPhone": {
+      "number": "+375291714772",
+      "isDefault": false
+    },
+    "address": "г.Минск, ул. Тикоцкого, д.48, кв.60",
+    "workMail": {
+      "emailAddress": "8753109@mail.ru",
+      "isDefault": true
+    },
+    "homeMail": {
+      "emailAddress": "",
+      "isDefault": false
+    }
+  },
+  {
+    "name": "Вася",
+    "lastName": "Пупкин",
+    "patronymic": "Иванович",
+    "dateOfBirth": "21.11.1999",
+    "mobilePhone": {
+      "number": "+37522123212",
+      "isDefault": true
+    },
+    "homePhone": {
+      "number": "2222222",
+      "isDefault": false
+    },
+    "workPhone": {
+      "number": "+375291714772",
+      "isDefault": false
+    },
+    "address": "г.Минск, ул. Калиновского, д.12, кв.713",
+    "workMail": {
+      "emailAddress": "",
+      "isDefault": true
+    },
+    "homeMail": {
+      "emailAddress": "",
+      "isDefault": false
+    }
+  },
+  {
+    "name": "Сергей",
+    "lastName": "Соколовский",
+    "patronymic": "Иванович",
+    "dateOfBirth": "21.11.2017",
+    "mobilePhone": {
+      "number": "+375282522442",
+      "isDefault": false
+    },
+    "homePhone": {
+      "number": "2819753",
+      "isDefault": true
+    },
+    "workPhone": {
+      "number": "+375291714772",
+      "isDefault": false
+    },
+    "address": "г.Минск, ул. Седых, д.123, кв.1",
+    "workMail": {
+      "emailAddress": "Sergey@gmail.com",
+      "isDefault": true
+    },
+    "homeMail": {
+      "emailAddress": "",
+      "isDefault": false
+    }
+  },
+  {
+    "name": "Кристина",
+    "lastName": "Полищук",
+    "patronymic": "Олеговна",
+    "dateOfBirth": "21.11.2017",
+    "mobilePhone": {
+      "number": "+375252456545",
+      "isDefault": true
+    },
+    "homePhone": {
+      "number": "2819753",
+      "isDefault": false
+    },
+    "workPhone": {
+      "number": "+375291714772",
+      "isDefault": false
+    },
+    "address": "г.Минск, ул. Беды, д.123, кв.1",
+    "workMail": {
+      "emailAddress": "SKry@gmail.com",
+      "isDefault": true
+    },
+    "homeMail": {
+      "emailAddress": "",
+      "isDefault": false
+    }
+  }
+]

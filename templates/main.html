@@ -1,0 +1,135 @@
+<nav class="main-nav">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-8">
+                <button class="btn btn-primary" data-toggle="modal" data-target="#contactModal">Новый контакт</button>
+            </div>
+            <div class="col-sm-4">
+                <input class="form-control" type="text" placeholder="Поиск" ng-model="searchText">
+            </div>
+        </div>
+    </div>
+</nav>
+<div class="content">
+    <div class="container">
+        <ul class="list-group contacts-list">
+            <li class="list-group-item" ng-repeat="contact in contacts | filter:searchText" ui-sref="contact({name : $index})">
+                <div class="row list-item clearfix">
+                    <div class="col-sm-1">
+                        {{$index + 1}}
+                    </div>
+                    <div class="col-sm-4 full-name">
+                        <span>{{contact.lastName}}</span>
+                        <span>{{contact.name}}</span>
+                        <span>{{contact.patronymic}}</span>
+                    </div>
+                    <div class="col-sm-1 phone-number">
+                        {{contact.mobilePhone.isDefault === true ? contact.mobilePhone.number : contact.homePhone.isDefault === true ? contact.homePhone.number : contact.workPhone.number }}
+                    </div>
+                    <div class="col-sm-6 text-center">
+                        {{contact.address}}
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="modal fade" id="contactModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" id="closeForm" data-dismiss="modal" aria-label="Close" ng-click="clearForm()"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title text-center" id="myModalLabel">Заполните данные</h4>
+            </div>
+            <div class="modal-body clearfix">
+                <form  name="newContactForm">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="newContactName">Имя<span class="field-required">*</span></label>
+                                <input type="text" class="form-control" id="newContactName" placeholder="Имя" ng-model="newContact.name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="newContactLastName">Фамилия<span class="field-required">*</span></label>
+                                <input type="text" class="form-control" id="newContactLastName" placeholder="Фамилия" ng-model="newContact.lastName" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="newContactPatronymic">Отчество<span class="field-required">*</span></label>
+                                <input type="text" class="form-control" id="newContactPatronymic" placeholder="Отчество" ng-model="newContact.patronymic" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="newContactDOB">Дата рождения></label>
+                                <input type="text" class="form-control" id="newContactDOB" placeholder="Дата рождения" ng-model="newContact.dateOfBirth">
+                            </div>
+                            <div class="form-group">
+                                <label for="newContactAddress">Адрес</label>
+                                <input type="text" class="form-control" id="newContactAddress" placeholder="Адрес" ng-model="newContact.address">
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group clearfix">
+                                <div class="col-sm-7 col-sm-offset-2">
+                                    <label for="newContactMP">Мобильный телефон</label>
+                                    <input type="text" class="form-control" id="newContactMP" placeholder="Мобильный телефон" ng-model="newContact.mobilePhone.number">
+                                </div>
+                            </div>
+                            <div class="form-group clearfix">
+                                <div class="col-sm-7 col-sm-offset-2">
+                                    <label for="newContactHP">Домашний телефон</label>
+                                    <input type="text" class="form-control" id="newContactHP" placeholder="Домашний телефон" ng-model="newContact.homePhone.number">
+                                </div>
+                            </div>
+                            <div class="form-group clearfix">
+                                <div class="col-sm-7 col-sm-offset-2">
+                                    <label for="newContactWP">Рабочий телефон</label>
+                                    <input type="text" class="form-control" id="newContactWP" placeholder="Рабочий телефон" ng-model="newContact.workPhone.number">
+                                </div>
+                            </div>
+                            <div class="form-group clearfix">
+                                <div class="col-sm-7 col-sm-offset-2">
+                                    <label for="newContactWM">Рабочая почта</label>
+                                    <input type="email" class="form-control" id="newContactWM" placeholder="Рабочая почта" ng-model="newContact.workMail.emailAddress">
+                                </div>
+                            </div>
+                            <div class="form-group clearfix">
+                                <div class="col-sm-7 col-sm-offset-2">
+                                    <label for="newContactHM">Домашняя почта</label>
+                                    <input type="email" class="form-control" id="newContactHM" placeholder="Домашняя почта" ng-model="newContact.homeMail.emailAddress">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="data-is-default clearfix">
+                            <div class="col-sm-12">
+                                <label for="phoneIsDefault" class="col-sm-6">
+                                    Телефон по умочинию:
+                                </label>
+                                <div class="col-sm-6">
+                                    <div class="col-sm-7 col-sm-offset-2">
+                                        <select id="phoneIsDefault" class="form-control" ng-model="phoneIsDefault" ng-options="phone.name for phone in phoneIsDefaultList" ng-change="changeDefPhone(phoneIsDefault)">
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-12">
+                                <label for="mailIsDefault" class="col-sm-6">
+                                    Почта по умочинию:
+                                </label>
+                                <div class="col-sm-6">
+                                    <div class="col-sm-7 col-sm-offset-2">
+                                        <select id="mailIsDefault" class="form-control" ng-model="mailIsDefault" ng-options="mail.name for mail in mailIsDefaultList" ng-change="changeDefMail(mailIsDefault)">>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" ng-disabled="newContactForm.$invalid" ng-click="addNewContact()">Добавить контакт</button>
+            </div>
+        </div>
+    </div>
+</div>
